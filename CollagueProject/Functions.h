@@ -8,17 +8,17 @@ using namespace std;
 
 struct Produkt {
     string nazwa;
-    int ilosc;
-    double cena;
-    double marza;
+    int ilosc = 0;
+    double cena = 0;
+    double marza = 0;
     string firma;
 };
 
 struct Sprzedaz {
     string data;
     string nazwa;
-    int ilosc;
-    double zysk;
+    int ilosc = 0;
+    double zysk = 0;
 };
 
 vector<Produkt> wczytajProduktyZPliku();

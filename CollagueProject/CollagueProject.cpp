@@ -8,7 +8,6 @@ int main() {
     setlocale(LC_CTYPE, "Polish");
 
     int choose;
-    string nazwaPliku = "magazyn.txt";
     while (true) {
         chooseOptions();
         cin >> choose;
