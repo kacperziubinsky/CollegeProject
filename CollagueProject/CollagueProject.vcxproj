@@ -128,10 +128,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CollagueProject.cpp" />
+    <ClCompile Include="Functions.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="finanse.txt" />
     <Text Include="magazyn.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Functions.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

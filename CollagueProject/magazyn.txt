@@ -1,8 +1,4 @@
-Mleko|100|2.99|0.5|Mlekowita
-Chleb|50|1.99|0.3|Piekarnia S³oneczko
 Jab³ka|200|0.99|0.2|Sadownik
 Cukier|150|3.5|0.4|Cukrownia
-Banany|2|1200|500|Krzak
 Ketchup|2|12|3|Krzak
 Olej Napedowy|500|4.5|1.5|Krzak
-Banany|3|3|2|Krzak
