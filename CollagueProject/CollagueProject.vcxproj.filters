@@ -23,16 +23,16 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="magazyn.txt">
+    <Text Include="finanse.txt">
       <Filter>Source Files</Filter>
     </Text>
-    <Text Include="finanse.txt">
+    <Text Include="magazyn.txt">
       <Filter>Source Files</Filter>
     </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Functions.h">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

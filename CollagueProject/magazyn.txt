@@ -1,4 +1,3 @@
 Jab³ka|200|0.99|0.2|Sadownik
-Cukier|150|3.5|0.4|Cukrownia
-Ketchup|2|12|3|Krzak
 Olej Napedowy|500|4.5|1.5|Krzak
+Komputer|1|1200|600|Ziubinski

@@ -13,3 +13,7 @@
 2024-01-26|Chleb|1|0
 2024-01-26|Banany|3|1500
 2024-01-26|Mleko|100|0
+Maliny|2|250|50|Ziubinski
+2024-01-27|Cukier|40|0.4
+2024-01-27|Ketchup|2|3
+Komputer|1|1200|600|Ziubinski
