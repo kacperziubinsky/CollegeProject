@@ -1,3 +1,5 @@
-Jab³ka|200|0.99|0.2|Sadownik
-Olej Napedowy|500|4.5|1.5|Krzak
-Komputer|1|1200|600|Ziubinski
+Procesor Intel|10|850|249.99|XKom
+Procesor AMD|5|550|349.99|Morele
+Procesor AMD|5|650|349.99|Komputronik
+Dysk SSD|10|120|40|Outlet
+RAM|50|70|40|Pc Master
