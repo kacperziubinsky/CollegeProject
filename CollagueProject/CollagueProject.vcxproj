@@ -22,7 +22,7 @@
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{a26b9a78-9350-4a14-a15e-03d9f9ff9436}</ProjectGuid>
-    <RootNamespace>CollagueProject</RootNamespace>
+    <RootNamespace>ShopManager</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <ProjectName>ShopManager</ProjectName>
   </PropertyGroup>
