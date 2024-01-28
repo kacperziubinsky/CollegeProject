@@ -8,8 +8,11 @@
 
 using namespace std;
 
+/* Sciê¿ki dostêpowe do plików tekstowych */
 #define financial_file "finanse.txt"
 #define storage_file "magazyn.txt"
+
+/* Funkcje pomocnicze*/
 
 vector<Produkt> wczytajProduktyZPliku() {
 	vector<Produkt> produkty;
@@ -96,81 +99,6 @@ void usunProduktZPliku(const string& nazwa, const string& firma) {
 	plik.close();
 }
 
-void sellProduct() {
-	vector<Produkt> produkty = wczytajProduktyZPliku();
-
-	double sumaDoZaplaty = 0;
-
-	string nazwaProduktu;
-
-	while (nazwaProduktu != "e")
-	{
-		cout << "Wpisz nazwê produktu lub wpisz e, aby zakoñczonyæ: ";
-		cin >> nazwaProduktu;
-
-		if (nazwaProduktu == "e") {
-			break;
-		}
-
-
-		vector<Produkt> dostepneProdukty;
-		for (auto& produkt : produkty) {
-			if (produkt.nazwa == nazwaProduktu) {
-				dostepneProdukty.push_back(produkt);
-			}
-		}
-
-		if (dostepneProdukty.empty()) {
-			cout << "Nie ma takiego produktu." << endl;
-			return;
-		}
-
-		string nazwaFirmy;
-		if (dostepneProdukty.size() > 1) {
-			cout << "Wybierz firmê: " << endl;
-			for (auto& produkt : dostepneProdukty) {
-				cout << produkt.firma << endl;
-			}
-			cin >> nazwaFirmy;
-		}
-		else {
-			nazwaFirmy = dostepneProdukty[0].firma;
-		}
-
-		int ilosc;
-		double marza = 0;
-		cout << "Wpisz iloœæ: ";
-		cin >> ilosc;
-
-		for (auto& produkt : dostepneProdukty) {
-			if (produkt.firma == nazwaFirmy) {
-				sumaDoZaplaty += ilosc * (produkt.cena + produkt.marza);
-				marza = produkt.marza;
-				break;
-			}
-		}
-
-		if (nazwaFirmy.empty()) {
-			usunProduktZPliku(nazwaProduktu, "");
-			addFinancial(nazwaProduktu, marza, ilosc);
-		}
-		else {
-			usunProduktZPliku(nazwaProduktu, nazwaFirmy);
-			addFinancial(nazwaProduktu, marza, ilosc);
-		}
-
-	}
-
-	cout << "Suma do zap³aty: " << sumaDoZaplaty << endl;
-}
-
-void showAvailability() {
-	vector<Produkt> produkty = wczytajProduktyZPliku();
-	for (const auto& produkt : produkty) {
-		cout << "Nazwa: " << produkt.nazwa<< ", Iloœæ: " << produkt.ilosc<< ", Cena: " << produkt.cena<< ", Mar¿a: " << produkt.marza<< ", Firma: " << produkt.firma << endl;
-	}
-}
-
 void wypiszPozycjeZRoku(const vector<Sprzedaz>& produkty, const string& rok) {
 	double suma = 0;
 	for (const auto& pozycja : produkty) {
@@ -193,6 +121,8 @@ void wyszukajDzien(const vector<Sprzedaz>& produkty, const string& dzien) {
 	cout << "Zysk za podany rok wynosi: " << suma << endl;
 
 }
+
+/* Funkcje g³ówne */
 
 void addInvoice() {
 	ofstream plik(storage_file, ios::app);
@@ -257,6 +187,83 @@ void checkFinanse() {
 		break;
 	default:
 		cout << "Nieprawid³owa treœæ. Spróbuj ponownie." << endl;
+	}
+}
+
+void sellProduct() {
+	vector<Produkt> produkty = wczytajProduktyZPliku();
+
+	double sumaDoZaplaty = 0;
+
+	string nazwaProduktu;
+
+	cin.ignore();
+
+	while (nazwaProduktu != "e") {
+		cout << "Wpisz nazwê produktu lub wpisz 'e', aby zakoñczyæ: ";
+		getline(cin, nazwaProduktu);
+
+		if (nazwaProduktu == "e") {
+			break;
+		}
+
+		cin.ignore();
+
+		vector<Produkt> dostepneProdukty;
+		for (auto& produkt : produkty) {
+			if (produkt.nazwa == nazwaProduktu) {
+				dostepneProdukty.push_back(produkt);
+			}
+		}
+
+		if (dostepneProdukty.empty()) {
+			cout << "Nie ma takiego produktu." << endl;
+			return;
+		}
+
+		string nazwaFirmy;
+		if (dostepneProdukty.size() > 1) {
+			cout << "Wybierz firmê: " << endl;
+			for (auto& produkt : dostepneProdukty) {
+				cout << produkt.firma << endl;
+			}
+			getline(cin, nazwaFirmy);
+		}
+		else {
+			nazwaFirmy = dostepneProdukty[0].firma;
+		}
+
+		int ilosc;
+		double marza = 0;
+		cout << "Wpisz iloœæ: ";
+		cin >> ilosc;
+		cin.ignore();
+
+		for (auto& produkt : dostepneProdukty) {
+			if (produkt.firma == nazwaFirmy) {
+				sumaDoZaplaty += ilosc * (produkt.cena + produkt.marza);
+				marza = produkt.marza;
+				break;
+			}
+		}
+
+		if (nazwaFirmy.empty()) {
+			usunProduktZPliku(nazwaProduktu, "");
+			addFinancial(nazwaProduktu, marza, ilosc);
+		}
+		else {
+			usunProduktZPliku(nazwaProduktu, nazwaFirmy);
+			addFinancial(nazwaProduktu, marza, ilosc);
+		}
+	}
+
+	cout << "Suma do zap³aty: " << sumaDoZaplaty << endl;
+}
+
+void showAvailability() {
+	vector<Produkt> produkty = wczytajProduktyZPliku();
+	for (const auto& produkt : produkty) {
+		cout << "Nazwa: " << produkt.nazwa << ", Iloœæ: " << produkt.ilosc << ", Cena: " << produkt.cena << ", Mar¿a: " << produkt.marza << ", Firma: " << produkt.firma << endl;
 	}
 }
 

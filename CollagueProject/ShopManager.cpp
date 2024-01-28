@@ -6,9 +6,10 @@ using namespace std;
 
 int main() {
     setlocale(LC_CTYPE, "Polish");
-
+    int status = 0;
     int choose;
-    while (true) {
+
+    while (status == 0) {
         chooseOptions();
         cin >> choose;
 
@@ -26,7 +27,8 @@ int main() {
             checkFinanse();
             break;
         case 5:
-            return 0;
+            status = 1;
+            break;
         default:
             cout << "Nieprawid³owa treœæ. Spróbuj ponownie." << endl;
         }
